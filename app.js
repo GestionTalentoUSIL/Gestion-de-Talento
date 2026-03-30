@@ -53,7 +53,7 @@ const state = {
 };
 
 const app = document.getElementById("app");
-const STEPS = ["Perfil", "Competencias", "Niveles", "Horizonte", "Acciones", "PDI Final"];
+const STEPS = ["Perfil", "Competencias", "Niveles", "Tiempo y Modalidad", "Acciones", "PDI Final"];
 
 function escapeHtml(value) {
   return String(value || "")
@@ -301,7 +301,7 @@ function canGoNext() {
     return state.profile.name && state.profile.position && state.profile.area && state.profile.improvements && state.profile.role;
   }
   if (state.step === 2) {
-    return state.selectedCompIds.length === 3;
+    return state.selectedCompIds.length >= 2;
   }
   return true;
 }
@@ -467,8 +467,8 @@ function renderStep2() {
   return `
     <section id="active-step">
       <h2>Priorizacion de Competencias</h2>
-      <p class="muted">Selecciona exactamente 3 competencias (${state.selectedCompIds.length}/3).</p>
-      <div class="hint">Tip: selecciona las tres que mas impacto tendran en tus resultados del proximo ciclo.</div>
+      <p class="muted">Selecciona entre 2 y 3 competencias (${state.selectedCompIds.length}/3).</p>
+      <div class="hint">Tip: elige al menos 2 y hasta 3 competencias con mayor impacto en tus resultados del proximo ciclo.</div>
 
       <div class="grid-2 block">
         <div>
@@ -501,7 +501,7 @@ function renderStep3() {
   return `
     <section id="active-step">
       <h2>Evaluacion de Niveles</h2>
-      <div class="hint">Selecciona nivel actual y nivel meta para cada una de las 3 competencias elegidas.</div>
+      <div class="hint">Selecciona nivel actual y nivel meta para cada competencia elegida.</div>
 
       <div class="block" style="display:grid;gap:14px;">
         ${state.selectedCompIds.map((id, idx) => {
@@ -543,7 +543,7 @@ function renderStep4() {
   const p = state.profile;
   return `
     <section id="active-step">
-      <h2>Horizonte del Plan</h2>
+      <h2>Tiempo y Modalidad del Plan</h2>
       <div class="hint">Define tiempo y modalidad para construir acciones realistas.</div>
 
       <div class="grid-2 block">
