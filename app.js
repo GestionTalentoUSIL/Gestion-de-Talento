@@ -308,7 +308,7 @@ function bindAutoFocusScroll() {
 function refreshNextButtonState() {
   const nextBtn = document.querySelector("[data-next]");
   if (!nextBtn) return;
-  nextBtn.disabled = false; // botones de navegación siempre activos
+  nextBtn.disabled = !canGoNext(); // Solo habilita si se cumplen los requisitos
 }
 
 function getProfileSnapshotForValidation() {
@@ -1107,10 +1107,12 @@ function renderNav() {
     `;
   }
 
+  // Determinar si el botón siguiente debe estar deshabilitado
+  const nextDisabled = !canGoNext();
   return `
     <div class="nav hide-print">
       <button class="btn-muted" data-prev ${state.step === 1 ? "disabled" : ""}>Atrás</button>
-      <button class="${state.step === 5 ? "btn-success" : "btn-main"}" data-next>
+      <button class="${state.step === 5 ? "btn-success" : "btn-main"}" data-next ${nextDisabled ? "disabled" : ""}>
         ${state.step === 5 ? "Finalizar y ver PDI" : "Siguiente"}
       </button>
     </div>
@@ -1190,7 +1192,10 @@ function bindEvents() {
 
       if (target.hasAttribute("data-next")) {
         ev.preventDefault();
-        toNext();
+        // Solo avanzar si el botón está habilitado y la validación pasa
+        if (!target.disabled && canGoNext()) {
+          toNext();
+        }
       }
 
       if (target.hasAttribute("data-prev")) {
