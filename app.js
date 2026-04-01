@@ -782,7 +782,7 @@ function renderStep1() {
       </div>
 
       <div class="block">
-        <label>¿Qué aspectos específicos de tu desempeño quieres mejorar? (Define de 2 a 3 objetivos) *</label>
+        <label>Basado en tu reciente reunión de feedback, selecciona de 2 a 3 aspectos específicos de tu desempeño en los que quieras trabajar. ¿Qué habilidades vas a transformar en este periodo? *</label>
         <textarea data-field="improvements" placeholder="Ej. 1) Mejorar feedback efectivo, 2) Fortalecer coordinación de equipo, 3) Optimizar experiencia del cliente">${escapeHtml(p.improvements)}</textarea>
         <div class="hint">Escribe de 2 a 3 objetivos concretos y medibles.</div>
       </div>
