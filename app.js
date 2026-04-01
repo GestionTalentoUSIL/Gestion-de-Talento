@@ -87,33 +87,73 @@ const ROLE_ACTION_LIBRARY = {
 const IMPROVEMENT_PRIORITIES = [
   {
     key: "comunicacion",
-    pattern: /comunicaci[oó]n|escucha|presentaci[oó]n|oratoria|mensaje|influencia/,
-    objective: "mejorar la calidad de comunicación y el alineamiento de equipos",
-    indicator: "claridad del mensaje, acuerdos cerrados y seguimiento oportuno"
+    pattern: /comunicaci[oó]n|escucha|presentaci[oó]n|oratoria|mensaje|influencia|redacci[oó]n|escritura|asertiv/,
+    objective: "mejorar la calidad de comunicación y el alineamiento del equipo",
+    indicator: "claridad del mensaje, acuerdos cerrados y ejecución sin reprocesos",
+    methods: ["estructura PREP (Punto-Razón-Ejemplo-Punto) para mensajes de alto impacto", "reuniones con agenda de tres puntos y cierre con acuerdos y responsables documentados", "técnica de parafraseo y preguntas abiertas en conversaciones críticas de coordinación"]
   },
   {
     key: "decision",
-    pattern: /decisi[oó]n|decisiones|criterio|priorizaci[oó]n|an[aá]lisis|riesgo/,
-    objective: "mejorar la calidad y oportunidad de decisiones",
-    indicator: "decisiones trazables, menor retrabajo y mejor uso de datos"
+    pattern: /decisi[oó]n|decisiones|criterio|priorizaci[oó]n|an[aá]lisis|riesgo|juicio|evaluaci[oó]n/,
+    objective: "mejorar la calidad y oportunidad de las decisiones",
+    indicator: "decisiones trazables, menor retrabajo y mejores resultados respaldados con datos",
+    methods: ["matriz de impacto-urgencia para priorizar antes de comprometer recursos o tiempo", "registro de decisiones con opciones evaluadas, criterio aplicado y resultado esperado", "análisis de dos indicadores clave antes de cada decisión crítica del área"]
   },
   {
     key: "cliente",
-    pattern: /cliente|servicio|atenci[oó]n|satisfacci[oó]n|nps|experiencia/,
-    objective: "elevar la experiencia y satisfacción del cliente",
-    indicator: "mejores tiempos de respuesta, satisfacción y cierre de casos"
+    pattern: /cliente|servicio|atenci[oó]n|satisfacci[oó]n|nps|experiencia|usuario|estudiante/,
+    objective: "elevar la experiencia y satisfacción del cliente interno o externo",
+    indicator: "mejores tiempos de respuesta, satisfacción declarada y cierre oportuno de casos",
+    methods: ["journey map del usuario o estudiante con los tres puntos de dolor prioritarios identificados", "protocolo de atención con tiempo de respuesta comprometido y escalamiento definido por tipo de caso", "revisión semanal de casos abiertos con acciones de cierre documentadas y comunicadas"]
   },
   {
     key: "digital",
-    pattern: /digital|herramienta|tecnolog[ií]a|automatizaci[oó]n|datos|anal[ií]tica|crm/,
-    objective: "fortalecer productividad digital y trabajo basado en datos",
-    indicator: "adopción de herramientas, trazabilidad y productividad"
+    pattern: /digital|herramienta|tecnolog[ií]a|automatizaci[oó]n|datos|anal[ií]tica|crm|sistema|plataforma|reporte/,
+    objective: "fortalecer la productividad digital y el trabajo basado en datos",
+    indicator: "adopción de herramientas, trazabilidad de procesos y productividad del equipo",
+    methods: ["tablero de KPI del área actualizado semanalmente con datos reales y alertas de desvío", "automatización de al menos un proceso recurrente usando herramientas institucionales disponibles", "flujo de trabajo digital con documentación centralizada en nube y versiones trazables"]
   },
   {
     key: "personas",
-    pattern: /liderazgo|equipo|personas|mentoria|mentoría|feedback|feedforward|coaching/,
-    objective: "potenciar desarrollo de personas y efectividad del equipo",
-    indicator: "mejor desempeño del equipo y avances sostenidos por persona"
+    pattern: /liderazgo|equipo|personas|mentor[ií]a|mentoría|feedback|feedforward|coaching|desarrollo\s+de/,
+    objective: "potenciar el desarrollo de personas y la efectividad del equipo",
+    indicator: "avances sostenidos por persona reportante y mejor desempeño colectivo del equipo",
+    methods: ["conversaciones 1:1 quincenales con agenda estructurada: logros, bloqueos y próximos pasos", "plan de desarrollo individual (PDI) por colaborador con metas trimestrales y revisión formal", "feedforward de tres puntos en cada conversación: qué continuar, qué ajustar y qué comenzar"]
+  },
+  {
+    key: "planificacion",
+    pattern: /planificaci[oó]n|organizaci[oó]n|tiempo|prioridades|agenda|gesti[oó]n\s+del\s+tiempo|productividad/,
+    objective: "mejorar la planificación y gestión eficiente del tiempo y las prioridades",
+    indicator: "cumplimiento de plazos, reducción de urgencias y tareas con dueño y fecha claros",
+    methods: ["time-blocking semanal con bloques protegidos para las tres prioridades de mayor impacto", "revisión de prioridades cada lunes con OKR personales actualizados y riescos identificados", "tablero de tareas con prioridad alta/media/baja visible y actualizado diariamente por el equipo"]
+  },
+  {
+    key: "resultados",
+    pattern: /resultados|metas|objetivos|indicadores|kpi|desempe[nñ]o|logros|cumplimiento|rendimiento/,
+    objective: "mejorar el cumplimiento de metas y la orientación consistente a resultados",
+    indicator: "porcentaje de cumplimiento de metas y decisiones respaldadas por indicadores concretos",
+    methods: ["OKRs trimestrales personales con revisión semanal y calibración mensual con el jefe directo", "tablero de indicadores de gestión con semáforo semanal (verde/amarillo/rojo) visible para el área", "cierre mensual de metas con análisis de brecha entre lo planeado y lo ejecutado y plan de ajuste"]
+  },
+  {
+    key: "colaboracion",
+    pattern: /colaboraci[oó]n|trabajo\s+en\s+equipo|cooperaci[oó]n|sinergia|interáreas|interdisciplinar|trabajo\s+conjunto/,
+    objective: "fortalecer la colaboración efectiva y los resultados compartidos entre equipos",
+    indicator: "cumplimiento de hitos compartidos, reducción de fricciones y entregas a tiempo",
+    methods: ["reuniones de sincronización rítmica semanal con acuerdos documentados y responsable por punto", "acuerdos de servicio interáreas con indicadores de cumplimiento y revisión trimestral formal", "retrospectivas quincenales con acciones de mejora priorizadas y seguimiento en la siguiente sesión"]
+  },
+  {
+    key: "innovacion",
+    pattern: /innovaci[oó]n|creatividad|mejora\s+continua|cambio|transformaci[oó]n|propuesta|soluci[oó]n\s+creativa/,
+    objective: "desarrollar capacidad de innovación y mejora continua aplicada al rol",
+    indicator: "propuestas implementadas, ciclos de mejora activos y aprendizajes documentados",
+    methods: ["sprint de mejora de dos semanas con hipótesis definida, prueba ejecutada y ajuste documentado", "ciclo PDCA mensual aplicado a un proceso real del área con indicador de avance registrado", "benchmarking de dos instituciones referentes con ficha de adecuación al contexto del puesto"]
+  },
+  {
+    key: "datos",
+    pattern: /datos|an[aá]lisis|reporte|m[eé]tricas|estad[ií]stica|evidencia|informaci[oó]n|registro|monitoreo/,
+    objective: "fortalecer el análisis de datos y las decisiones basadas en evidencia",
+    indicator: "reportes con datos concretos, decisiones justificadas y tendencias detectadas a tiempo",
+    methods: ["dashboard semanal de tres métricas clave del área con evolución visible de las últimas cuatro semanas", "análisis de causa raíz con la técnica de los cinco porqués ante cualquier problema recurrente", "reporte ejecutivo simplificado con alerta de desvíos entregado cada lunes al equipo directo"]
   }
 ];
 
@@ -154,6 +194,61 @@ const COMPETENCY_CONTEXT = {
     focus: "innovación aplicada al contexto USIL",
     evidence: "prototipos o mejoras implementadas con impacto verificable"
   }
+};
+
+// Técnicas y herramientas específicas por competencia (3 métodos por cada una)
+const COMPETENCY_METHODS = {
+  l1: [
+    "un plan de desarrollo individual (PDI) por persona con metas trimestrales documentadas y revisión formal por ciclo",
+    "conversaciones 1:1 quincenales con agenda fija: logros de la quincena, bloqueos actuales y dos próximos pasos concretos",
+    "una matriz de brechas individuales con acciones de cierre asignadas, fecha y responsable por cada colaborador directo"
+  ],
+  l2: [
+    "el modelo SBI (Situación-Comportamiento-Impacto) para dar retroalimentación específica, observable y accionable en cada conversación",
+    "compromisos escritos de mejora con revisión documentada en no más de 21 días y registro de avance por sesión",
+    "feedforward estructurado de tres puntos: qué continuar haciendo bien, qué ajustar y qué comenzar a hacer diferente"
+  ],
+  l3: [
+    "un registro de decisiones clave con las opciones evaluadas, el criterio aplicado y el resultado esperado para hacerlas trazables",
+    "la matriz de impacto-urgencia para priorizar acciones antes de comprometer el tiempo y recursos del equipo cada semana",
+    "el análisis de al menos dos indicadores relevantes antes de cualquier decisión crítica que afecte resultados del área"
+  ],
+  l4: [
+    "la estructura PREP (Punto-Razón-Ejemplo-Punto) para construir mensajes claros y de alto impacto en reuniones y reportes",
+    "un cierre formal de cada reunión con lista de acuerdos numerados, responsable asignado y fecha de seguimiento comprometida",
+    "la técnica de escucha activa con parafraseo y preguntas abiertas en cada conversación de coordinación o alineamiento"
+  ],
+  o1: [
+    "un tablero personal de tareas en herramienta colaborativa (Trello, Planner o similar) con estados actualizados diariamente",
+    "la automatización de al menos un proceso recurrente del área usando las herramientas institucionales disponibles",
+    "un dashboard de KPIs del área con actualización semanal, basado en datos reales y alertas ante desvíos de meta"
+  ],
+  o2: [
+    "un mapa de journey del usuario o estudiante con los tres puntos de dolor prioritarios identificados y acciones de mejora asignadas",
+    "un protocolo de atención con tiempo máximo de respuesta comprometido por tipo de solicitud y escalamiento definido",
+    "un ciclo semanal de revisión de casos abiertos con acciones de cierre documentadas y comunicadas al usuario o área afectada"
+  ],
+  o3: [
+    "OKRs compartidos con áreas partner con plazos, responsables y hitos de entrega visibles para todos los involucrados desde el inicio",
+    "una reunión de sincronización semanal con tablero compartido de avance visible para todos los equipos involucrados en el proceso",
+    "acuerdos de nivel de servicio entre áreas con indicadores de cumplimiento revisados formalmente cada trimestre"
+  ],
+  o4: [
+    "un plan de comunicación del cambio con mensajes clave adaptados a cada grupo de interés interno antes del despliegue",
+    "un piloto controlado de 30 días con métricas de adopción medidas semanalmente antes del despliegue total al área",
+    "una retrospectiva quincenal del proceso de cambio con lecciones aprendidas documentadas y ajustes aplicados de inmediato"
+  ],
+  o5: [
+    "un desafío de innovación mensual con un problema real del área, tres soluciones propuestas y al menos un prototipo validado internamente",
+    "un benchmarking rápido de dos instituciones referentes con una ficha de adecuación de prácticas al contexto del puesto",
+    "un sprint de mejora de dos semanas con hipótesis definida, prueba ejecutada, aprendizaje documentado y decisión de escalar o descartar"
+  ]
+};
+
+// Detección de nivel jerárquico del puesto
+const SENIORITY_PATTERNS = {
+  strategic: /gerente|director|decano|vp\b|vice|head\b|jefe\s+de\s+[aá]rea|coordinador\s+general|subdirector/,
+  tactical: /coordinador|supervisor|jefe\s+de|l[ií]der\s+de|encargado|responsable\s+de/
 };
 
 const ALL_COMPS = [...COMPETENCIES.liderazgo, ...COMPETENCIES.organizacionales];
@@ -213,7 +308,7 @@ function bindAutoFocusScroll() {
 function refreshNextButtonState() {
   const nextBtn = document.querySelector("[data-next]");
   if (!nextBtn) return;
-  nextBtn.disabled = !canGoNext();
+  nextBtn.disabled = false; // botones de navegación siempre activos
 }
 
 function getProfileSnapshotForValidation() {
@@ -312,6 +407,35 @@ function getCompetencyContext(compId) {
   };
 }
 
+// Devuelve un método/técnica específica para la competencia según offset de variedad
+function getCompetencyMethod(compId, offset) {
+  const methods = COMPETENCY_METHODS[compId];
+  if (!methods || methods.length === 0) return "práctica documentada con evidencias semanales de aplicación";
+  return methods[offset % methods.length];
+}
+
+// Devuelve un método específico para el objetivo de mejora identificado
+function getImprovementMethod(priorityKey, offset) {
+  const found = IMPROVEMENT_PRIORITIES.find(p => p.key === priorityKey);
+  if (!found || !found.methods || found.methods.length === 0) return "seguimiento con indicadores visibles y revisión semanal";
+  return found.methods[offset % found.methods.length];
+}
+
+// Detecta nivel jerárquico según nombre del puesto
+function getSeniorityLevel(position) {
+  const base = (position || "").toLowerCase();
+  if (SENIORITY_PATTERNS.strategic.test(base)) return "strategic";
+  if (SENIORITY_PATTERNS.tactical.test(base)) return "tactical";
+  return "operational";
+}
+
+// Frase de cierre contextualizada según nivel del puesto
+function getSeniorityHint(level) {
+  if (level === "strategic") return "Asegura que el impacto sea visible a nivel de área y se refleje en resultados institucionales medibles";
+  if (level === "tactical") return "Traduce el aprendizaje en prácticas sostenidas de equipo con seguimiento documentado cada quincena";
+  return "Consolida la aplicación diaria con entregables concretos y calidad sostenida en cada ciclo de trabajo";
+}
+
 function inferRoleFromPosition(position, area) {
   const base = `${position || ""} ${area || ""}`.toLowerCase();
 
@@ -362,6 +486,8 @@ function buildPlan(profile, selectedCompIds) {
   const objectiveAnchor = getObjectiveAnchor(profile.improvements);
   const priority = getImprovementPriority(profile.improvements);
   const positionLabel = profile.position || "el puesto actual";
+  const seniorityLevel = getSeniorityLevel(profile.position);
+  const seniorityHint = getSeniorityHint(seniorityLevel);
 
   selectedCompIds.forEach((id, idx) => {
     const lv = state.levels[id] || { current: 1, expected: 4 };
@@ -369,10 +495,16 @@ function buildPlan(profile, selectedCompIds) {
     const o = idx * 2 + seed;
     const compName = ALL_COMPS.find((c) => c.id === id)?.name || "esta competencia";
     const compContext = getCompetencyContext(id);
+    const compMethod = getCompetencyMethod(id, o);
+    const improvMethod = getImprovementMethod(priority.key, o + 1);
 
-    const action70 = `${interpolate(pool["70"][o % pool["70"].length], profile)} Enfoca la ejecución en ${compContext.focus} y en ${priority.objective} desde ${positionLabel}. ${complexityNote(gap)}`;
-    const action20 = `${interpolate(pool["20"][(o + 1) % pool["20"].length], profile)} Refuerza ${compName} en situaciones reales y conecta con ${objectiveAnchor}. Prioriza ${priority.indicator}.`;
-    const action10 = `${interpolate(pool["10"][(o + 2) % pool["10"].length], profile)} ${modeHint} Busca ${compContext.evidence} y mide ${priority.indicator}. ${timeHint}`;
+    const base70 = interpolate(pool["70"][o % pool["70"].length], profile);
+    const base20 = interpolate(pool["20"][(o + 1) % pool["20"].length], profile);
+    const base10 = interpolate(pool["10"][(o + 2) % pool["10"].length], profile);
+
+    const action70 = `${base70} Para lograrlo, implementa ${compMethod}. ${complexityNote(gap)} ${seniorityHint}.`;
+    const action20 = `${base20} Durante este proceso, utiliza ${improvMethod} para conectar el aprendizaje con situaciones reales de ${compName} desde ${positionLabel}. Mide tu avance con: ${priority.indicator}.`;
+    const action10 = `${base10} ${modeHint} Aplica ${improvMethod} para generar ${compContext.evidence} y valida con ${priority.indicator}. ${timeHint}`;
 
     out[id] = [
       { type: "70", text: action70, priority: priorityByGap(gap, "70") },
@@ -564,7 +696,6 @@ function toNext() {
     state.profile.improvements = snapshot.improvements;
   }
 
-  if (!canGoNext()) return;
   if (state.step === 5) {
     state.feedback = buildFeedback();
     state.step = 6;
@@ -656,70 +787,11 @@ function downloadPdf() {
     return;
   }
 
-  const printWindow = window.open("", "_blank", "width=1100,height=760");
-  if (!printWindow) {
-    alert("No se pudo abrir la vista de impresión. Habilita las ventanas emergentes para este sitio.");
+  // Imprimir la vista actual evita recortes de contenido causados por ventanas emergentes.
+  // El CSS @media print ya oculta topbar/nav y deja solo el PDI final.
+  requestAnimationFrame(() => {
     window.print();
-    return;
-  }
-
-  const stylesheetHref = new URL("styles.css", window.location.href).href;
-
-  const printStyles = `
-    body {
-      margin: 0;
-      background: #ffffff;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: #0f172a;
-      padding: 18px;
-    }
-    .final-sheet {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: #ffffff;
-    }
-    .actions-bar,
-    .hide-print {
-      display: none !important;
-    }
-  `;
-
-  const title = (state.profile.name || "PDI USIL").trim();
-  printWindow.document.open();
-  printWindow.document.write(`<!doctype html>
-    <html lang="es">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>${escapeHtml(title)} - PDI USIL: Tu Ruta de Crecimiento</title>
-        <link rel="stylesheet" href="${stylesheetHref}" />
-        <style>${printStyles}</style>
-      </head>
-      <body>
-        ${printable.outerHTML}
-      </body>
-    </html>`);
-  printWindow.document.close();
-
-  let printTriggered = false;
-  const runPrint = () => {
-    if (printTriggered) return;
-    printTriggered = true;
-    printWindow.focus();
-    printWindow.print();
-  };
-
-  // Espera carga completa para evitar PDF vacío o incompleto.
-  printWindow.addEventListener("load", () => {
-    setTimeout(runPrint, 350);
-  }, { once: true });
-
-  printWindow.addEventListener("afterprint", () => {
-    printWindow.close();
-  }, { once: true });
-
-  // Fallback por si el evento load no dispara en algunos navegadores.
-  setTimeout(runPrint, 900);
+  });
 }
 
 async function submitData() {
@@ -783,8 +855,8 @@ function renderStep1() {
 
       <div class="block">
         <label>Basado en tu reciente reunión de feedback, selecciona de 2 a 3 aspectos específicos de tu desempeño en los que quieras trabajar. ¿Qué habilidades vas a transformar en este periodo? *</label>
-        <textarea data-field="improvements" placeholder="Ej. 1) Mejorar feedback efectivo, 2) Fortalecer coordinación de equipo, 3) Optimizar experiencia del cliente">${escapeHtml(p.improvements)}</textarea>
-        <div class="hint">Escribe de 2 a 3 objetivos concretos y medibles.</div>
+        <input data-field="improvements" value="${escapeHtml(p.improvements)}" placeholder="Ej. Transformar mi comunicación asertiva, la toma de decisiones y la gestión del tiempo" />
+        <div class="hint">Escribe una sola frase que incluya de 2 a 3 habilidades concretas.</div>
       </div>
     </section>
   `;
@@ -1038,7 +1110,7 @@ function renderNav() {
   return `
     <div class="nav hide-print">
       <button class="btn-muted" data-prev ${state.step === 1 ? "disabled" : ""}>Atrás</button>
-      <button class="${state.step === 5 ? "btn-success" : "btn-main"}" data-next ${!canGoNext() ? "disabled" : ""}>
+      <button class="${state.step === 5 ? "btn-success" : "btn-main"}" data-next>
         ${state.step === 5 ? "Finalizar y ver PDI" : "Siguiente"}
       </button>
     </div>

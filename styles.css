@@ -1125,8 +1125,31 @@ button:active:not(:disabled) { transform: translateY(0) scale(0.99); }
 
 /* Print */
 @media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   body {
     background: #fff;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   #app {
@@ -1148,12 +1171,57 @@ button:active:not(:disabled) { transform: translateY(0) scale(0.99); }
 
   .content { padding: 0; }
 
+  #active-step,
+  #pdi-final {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
   .final-sheet {
     border: none;
     border-radius: 0;
     padding: 0;
     backdrop-filter: none;
     background: #fff;
+    box-shadow: none;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .final-sheet > * {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+    margin-bottom: 10px;
+  }
+
+  .grid-2,
+  .final-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .comp-plan {
+    overflow: visible !important;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+    box-shadow: none;
+    background: #fff;
+  }
+
+  .strong-box {
+    color: #0f172a !important;
+    background: #edf3ff !important;
+    border: 1px solid #cfdcf3 !important;
+    box-shadow: none !important;
+  }
+
+  .badge {
+    color: #0f172a !important;
+    background: #e8eef9 !important;
+    border: 1px solid #bfcde4;
     box-shadow: none;
   }
 }
