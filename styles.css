@@ -316,6 +316,13 @@ textarea { min-height: 108px; resize: vertical; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.72);
 }
 
+.warning-hint {
+  border-color: rgba(210, 145, 20, 0.46);
+  border-left-color: rgba(173, 112, 6, 0.74);
+  background: rgba(255, 245, 220, 0.72);
+  color: #7d4d00;
+}
+
 /* Tarjetas: Role, Competencia, Modalidad */
 .role-card,
 .comp-card,
@@ -443,6 +450,35 @@ textarea { min-height: 108px; resize: vertical; }
   border-color: var(--success);
   background: rgba(210, 250, 228, 0.82);
   box-shadow: 0 0 0 3px rgba(11, 114, 73, 0.15), inset 0 1px 0 rgba(255,255,255,0.85);
+}
+
+.level-btn.disabled,
+.level-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 1px 2px rgba(6,22,60,0.05);
+}
+
+.actions-highlight {
+  margin: 10px 0 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-regenerate {
+  background: linear-gradient(145deg, #7b5e12, #af861e 55%, #d3a52a 100%);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(126, 90, 10, 0.34), inset 0 1px 0 rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 235, 176, 0.38);
+  font-weight: 800;
+}
+
+.btn-regenerate span {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 14px;
+  transform: translateY(1px);
 }
 
 /* Plan de competencia */

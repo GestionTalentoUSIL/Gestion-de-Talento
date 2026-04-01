@@ -328,10 +328,15 @@ function getProfileSnapshotForValidation() {
 
 function updateLevel(compId, field, value) {
   const current = state.levels[compId] || { current: 1, expected: 4 };
-  let newLevel = { ...current, [field]: value };
+  let newLevel = { ...current, [field]: Number(value) };
 
-  // Si el nivel actual es 4 o 5, el nivel meta debe ser automaticamente 5
-  if (field === "current" && value >= 4) {
+  // El nivel meta nunca puede quedar por debajo del nivel actual.
+  if (newLevel.expected < newLevel.current) {
+    newLevel.expected = newLevel.current;
+  }
+
+  // Si el nivel actual es 4 o 5, el nivel meta debe ser automaticamente 5.
+  if (field === "current" && newLevel.current >= 4) {
     newLevel.expected = 5;
   }
 
@@ -812,7 +817,10 @@ function levelButtons(compId, field, colorClass) {
   // Mostrar todas las opciones para ambos niveles
   const options = [1, 2, 3, 4, 5];
   return options
-    .map((n) => `<button class="level-btn ${colorClass} ${val === n ? "active" : ""}" data-level-comp="${compId}" data-level-field="${field}" data-level-value="${n}">${n}<br><small>${SHORT_LEVEL[n - 1]}</small></button>`)
+    .map((n) => {
+      const expectedTooLow = field === "expected" && n < lv.current;
+      return `<button class="level-btn ${colorClass} ${val === n ? "active" : ""} ${expectedTooLow ? "disabled" : ""}" ${expectedTooLow ? "disabled" : ""} data-level-comp="${compId}" data-level-field="${field}" data-level-value="${n}">${n}<br><small>${SHORT_LEVEL[n - 1]}</small></button>`;
+    })
     .join("");
 }
 
@@ -901,6 +909,7 @@ function renderStep3() {
     <section id="active-step">
       <h2>Evaluación de Niveles</h2>
       <div class="hint">Selecciona nivel actual y nivel meta para cada competencia elegida.</div>
+      <div class="hint warning-hint">Candado aplicado: el nivel meta no puede ser menor al nivel actual.</div>
 
       <div class="block" style="display:grid;gap:14px;">
         ${state.selectedCompIds.map((id, idx) => {
@@ -975,8 +984,10 @@ function renderStep5() {
     <section id="active-step">
       <h2>Acciones 70-20-10</h2>
       <p class="muted">Revisa y ajusta mentalmente estas acciones antes de finalizar tu PDI.</p>
-      <div style="margin-bottom:12px;">
-        <button class="btn-muted" data-regenerate>Regenerar acciones</button>
+      <div class="actions-highlight">
+        <button class="btn-regenerate" data-regenerate title="Generar una variante de acciones">
+          <span aria-hidden="true">&#8635;</span> Regenerar acciones
+        </button>
       </div>
 
       <div class="block" style="display:grid;gap:14px;">
@@ -1186,6 +1197,7 @@ function bindEvents() {
       }
 
       if (target.hasAttribute("data-level-comp")) {
+        if (target.classList.contains("disabled") || target.disabled) return;
         ev.preventDefault();
         updateLevel(target.dataset.levelComp, target.dataset.levelField, Number(target.dataset.levelValue));
       }
